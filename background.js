@@ -111,7 +111,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         // Send message to the tab, saying the browser action was clicked, along
         // with the path of the script that should be executed.
         // The content.js file listens for this message.
-        chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "script": script});
+        chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "script": script, "site": siteMap[i].site});
       }
     }
   });

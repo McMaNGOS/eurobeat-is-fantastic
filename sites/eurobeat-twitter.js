@@ -1,6 +1,6 @@
 // EUROBEAT for Twitter
 
-function runSiteScript() {
+function runSiteScriptTwitter() {
   // Selector for tweets in Twitter stream (root element).
   var root = "#stream-items-id > li > div.tweet > div.content, #stream-items-id > li > ol > li > div.tweet > div.content";
 

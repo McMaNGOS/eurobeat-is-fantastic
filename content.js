@@ -13,13 +13,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         // Create and append script element.
         var el = document.createElement('script');
         el.type = "text/javascript";
-        el.src = chrome.extension.getURL(request.script);
+        el.src = chrome.runtime.getURL(request.script);
         el.id = 'eurobeat-script';
         (document.head || document.documentElement).appendChild(el);
         console.log("[EUROBEAT] content.js: Site script injected!");
       } finally {
-        runScript();
-        myInterval = setInterval(runScript, 3000);
+        runScript(request.site);
+        myInterval = setInterval(function() { runScript(request.site) }, 3000);
       }
     } else {
       eurobeatScript.remove();
@@ -38,9 +38,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   }
 });
 
-function runScript() {
+function runScript(site) {
   console.log("[EUROBEAT] Script running!");
-  var args = runSiteScript();
+  var args;
+  if (site === "twitter.com") {
+    args = runSiteScriptTwitter();
+  }
+  if (site === "tumblr.com") {
+    args = runSiteScriptTumblr();
+  }
   replaceContent(...args);
 }
 

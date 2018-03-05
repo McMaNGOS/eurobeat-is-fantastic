@@ -1,6 +1,6 @@
 // EUROBEAT for Tumblr
 
-function runSiteScript() {
+function runSiteScriptTumblr() {
   var root = "ol#posts > li:not(.new_post_buttons_container)";
 
   var selectors = [

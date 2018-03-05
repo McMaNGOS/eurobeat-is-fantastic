@@ -3,7 +3,7 @@
 
   "name": "Eurobeat is fantastic",
   "description": "Instantly replace your social media feed(s) with reminders of how fantastic Eurobeat is.",
-  "version": "0.1",
+  "version": "0.2",
 
   "browser_action": {
     "default_icon": "icons/icon_16.png"
@@ -19,7 +19,7 @@
     {
     "matches": ["https://twitter.com/*", "https://www.tumblr.com/*"],
     "js": [
-        "content.js", "/sites/eurobeat-twitter.js", "/sites/eurobeat-tumblr.js"
+        "content.js", "sites/eurobeat-twitter.js", "sites/eurobeat-tumblr.js"
       ]
     }
   ],
@@ -33,6 +33,7 @@
   ],
 
   "permissions": [
+    "tabs",
     "activeTab",
     "webNavigation",
     "storage"
